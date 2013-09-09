@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
+
+require 'rubygems'
+require 'rspec'
+require 'json'
+
+class Mapper
+  def self.run
+    `cat data/* | ruby lib/mapper.rb`
+  end
+end
+
+describe Mapper do
+  it 'should output the words and the category of the one' do
+    expect = "年\tcategory.international\t1\n月\tcategory.international\t1\n日\tcategory.international\t1\n中心\tcategory.international\t1\n地区\tcategory.international\t1\n週刊\tcategory.international\t1\nusers\tcategory.international\t1\n海外\tcategory.international\t1\n事件\tcategory.international\t1\n簿\tcategory.international\t1\n過激\tcategory.international\t1\n集団\tcategory.international\t1\n本国\tcategory.international\t1\n脱出\tcategory.international\t1\n政権\tcategory.international\t1\n抑圧\tcategory.international\t1\n原因\tcategory.international\t1\nMSN\tcategory.international\t1\n産経\tcategory.international\t1\nusers\tcategory.international\t1\n日記\tcategory.enocomics\t1\n人\tcategory.enocomics\t1\n黒田\tcategory.enocomics\t1\n日銀\tcategory.enocomics\t1\n総裁\tcategory.enocomics\t1\n次元\tcategory.enocomics\t1\n緩和\tcategory.enocomics\t1\n検証\tcategory.enocomics\t1\nusers\tcategory.enocomics\t1\n目\tcategory.electro\t1\n光景\tcategory.electro\t1\n枚\tcategory.electro\t1\n写真\tcategory.electro\t1\nusers\tcategory.electro\t1\nMaltine\tcategory.electro\t1\nRecords\tcategory.electro\t1\nMARU\tcategory.electro\t1\npale\tcategory.electro\t1\nmachine\tcategory.electro\t1\nusers\tcategory.electro\t1\nusers\tcategory.electro\t1\n動画\tcategory.electro\t1\nusers\tcategory.electro\t1\n本田\tcategory.sports\t1\n圭\tcategory.sports\t1\n佑\tcategory.sports\t1\n柿谷\tcategory.sports\t1\n絶賛\tcategory.sports\t1\n曜一\tcategory.sports\t1\n朗\tcategory.sports\t1\n全て\tcategory.sports\t1\nusers\tcategory.sports\t1\n朝日新聞\tcategory.entertainment\t1\n美\tcategory.entertainment\t1\n白\tcategory.entertainment\t1\n化粧\tcategory.entertainment\t1\n品\tcategory.entertainment\t1\n被害\tcategory.entertainment\t1\n併用\tcategory.entertainment\t1\n頻出\tcategory.entertainment\t1\n皮膚\tcategory.entertainment\t1\n科\tcategory.entertainment\t1\n学会\tcategory.entertainment\t1\n報告\tcategory.entertainment\t1\n社会\tcategory.entertainment\t1\nusers\tcategory.entertainment\t1\n擁護\tcategory.international\t1\n理由\tcategory.international\t1\nWEDGE\tcategory.international\t1\nInfinity\tcategory.international\t1\nusers\tcategory.international\t1\n泉\tcategory.electro\t1\nusers\tcategory.electro\t1\n人\tcategory.electro\t1\n顧客\tcategory.electro\t1\n本\tcategory.electro\t1\n有効\tcategory.electro\t1\n活用\tcategory.electro\t1\n仕組み\tcategory.electro\t1\nusers\tcategory.electro\t1\nPocket\tcategory.electro\t1\nEvernote\tcategory.electro\t1\n保存\tcategory.electro\t1\n時\tcategory.electro\t1\n歩\tcategory.electro\t1\nusers\tcategory.electro\t1\n提督\tcategory.electro\t1\n田中\tcategory.electro\t1\n謙介\tcategory.electro\t1\n氏\tcategory.electro\t1\nusers\tcategory.electro\t1\nAzure\tcategory.electro\t1\n活用\tcategory.electro\t1\nSpeaker\tcategory.electro\t1\nDeck\tcategory.electro\t1\nusers\tcategory.electro\t1\n正確\tcategory.electro\t1\n自動\tcategory.electro\t1\n要約\tcategory.electro\t1\n日本語\tcategory.electro\t1\n要約\tcategory.electro\t1\nSLICE\tcategory.electro\t1\nusers\tcategory.electro\t1\n宮崎\tcategory.entertainment\t1\n監督\tcategory.entertainment\t1\n引退\tcategory.entertainment\t1\n会見\tcategory.entertainment\t1\n僕\tcategory.entertainment\t1\n長編\tcategory.entertainment\t1\n時代\tcategory.entertainment\t1\n今回\tcategory.entertainment\t1\n本気\tcategory.entertainment\t1\nMSN\tcategory.entertainment\t1\n産\tcategory.entertainment\t1\nusers\tcategory.entertainment\t1\nYAMADAtheGIANT\tcategory.entertainment\t1\ncom\tcategory.entertainment\t1\nusers\tcategory.entertainment\t1\n緊急\tcategory.entertainment\t1\n調査\tcategory.entertainment\t1\n男子\tcategory.entertainment\t1\nusers\tcategory.entertainment\t1\n時\tcategory.entertainment\t1\nusers\tcategory.entertainment\t1\n"
+    Mapper.run.should eql expect
+  end
+end
