@@ -17,7 +17,7 @@ class Reducer
     category_science = 0
 
     stdin.each_line {|line|
-      newkey, tag, count = line.strip.split
+      newkey, tag, count = line.force_encoding("utf-8").strip.split
       if newkey.length > 0
         unless key == newkey
           puts "#{key}\t#{hits}\t#{category_social}\t#{category_politics}\t#{category_international}\t#{category_economics}\t#{category_electro}\t#{category_sports}\t#{category_entertainment}\t#{category_science}\n" unless key.nil?
