@@ -4,9 +4,7 @@
 $:.unshift File.join(File.dirname(__FILE__))
 
 class Reducer
-  def reduce(stdin)
-    key = nil
-    hits = 0
+  def new_hash
     hash = {}
     hash["category_social"]        = 0
     hash["category_politics"]      = 0
@@ -16,6 +14,13 @@ class Reducer
     hash["category_sports"]        = 0
     hash["category_entertainment"] = 0
     hash["category_science"]       = 0
+    return hash
+  end
+
+  def reduce(stdin)
+    key = nil
+    hits = 0
+    hash = new_hash
 
     stdin.each_line {|line|
       newkey, tag, count = line.force_encoding("utf-8").strip.split
@@ -24,15 +29,7 @@ class Reducer
           reducer_output(key, hits, hash)
           key = newkey
           hits = 0
-          hash = {}
-          hash["category_social"]        = 0
-          hash["category_politics"]      = 0
-          hash["category_international"] = 0
-          hash["category_economics"]     = 0
-          hash["category_electro"]       = 0
-          hash["category_sports"]        = 0
-          hash["category_entertainment"] = 0
-          hash["category_science"]       = 0
+          hash = new_hash
         end
         hits += count.to_i
         hash["category_social"]        += 1 if tag == "category.social"
