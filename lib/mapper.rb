@@ -21,7 +21,7 @@ class Mapper
       JSON.parse(json).each {|k,v|
         if k == "title" or k == "description"
           pickup_nouns(v).each {|word|
-            if word =~ /[亜-腕]/
+            if word =~ /[一-龠]/
               mapper_output(word, tag)
             end
             if word =~ /^[A-Za-z].*/
