@@ -3,6 +3,8 @@
 
 $:.unshift File.join(File.dirname(__FILE__))
 
+require 'sysadmin'
+
 class Reducer
   def new_hash
     hash = {}
@@ -48,7 +50,7 @@ class Reducer
   private
 
   def reducer_output(key, hits, hash)
-    puts "#{key}\t#{hits}\t#{hash["category_social"]}\t#{hash["category_politics"]}\t#{hash["category_international"]}\t#{hash["category_economics"]}\t#{hash["category_electro"]}\t#{hash["category_sports"]}\t#{hash["category_entertainment"]}\t#{hash["category_science"]}\n" unless key.nil?
+    puts "#{key}\t#{hits}\t#{hash["category_social"]}\t#{hash["category_politics"]}\t#{hash["category_international"]}\t#{hash["category_economics"]}\t#{hash["category_electro"]}\t#{hash["category_sports"]}\t#{hash["category_entertainment"]}\t#{hash["category_science"]}\t#{hash.values.standard_deviation}\n" unless key.nil?
   end
 end
 
