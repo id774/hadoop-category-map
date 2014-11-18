@@ -1,3 +1,4 @@
 #!/bin/sh
 
-cat data/twitter_example.log | ruby lib/mapper.rb | sort | ruby lib/reducer.rb  > log/result.log
+# cat data/twitter_example.log | ruby lib/mapper.rb | sort | ruby lib/reducer.rb  > log/result.log
+cat /home/fluent/.fluent/log/train.log.* | ruby lib/mapper.rb | sort | ruby lib/reducer.rb  > log/result.log
